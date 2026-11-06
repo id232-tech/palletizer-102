@@ -1,0 +1,9 @@
+        # autopack: place while there is room, swap full trays.
+        if verb == "autopack":
+            max_boxes_to_pack = command.get("max_boxes_to_pack")
+            if max_boxes_to_pack is not None:
+                try:
+                    max_boxes_to_pack = int(max_boxes_to_pack)
+                except (TypeError, ValueError):
+                    return {"error": "max_boxes_to_pack must be a number"}
+            return await self.autopack(max_boxes_to_pack)
