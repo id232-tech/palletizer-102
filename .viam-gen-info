@@ -1,0 +1,13 @@
+{
+  "module_name": "palletizer-102",
+  "visibility": "private",
+  "namespace": "calmamberautomaton",
+  "language": "python",
+  "resource_type": "service",
+  "resource_subtype": "generic",
+  "model_name": "palletizer",
+  "initialize_git": false,
+  "generator_version": "0.1.0",
+  "generated_on": "2026-11-06T00:02:04.640283093Z",
+  "module_readme_link": "README.md"
+}

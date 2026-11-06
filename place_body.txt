@@ -1,0 +1,19 @@
+        cx, cy, top = await self.pallet_top()
+        seq = len(self.placed)
+        x, y, z_tip = self.place_pose(seq, cx, cy, top)
+        await self.pick(seq)
+        minimum_height_to_clear_stack = self.clear_tip(z_tip)
+        safe_pose_facing_down_above_stack = down_pose(
+            x,
+            y,
+            minimum_height_to_clear_stack)
+        pose_at_slot_facing_down = down_pose(x, y, z_tip)
+        await self.move_gripper(
+            safe_pose_facing_down_above_stack,
+            self.obstacles(held=True))
+        await self.move_gripper(pose_at_slot_facing_down)
+        await self.gripper.open()
+        z_box = z_tip - self.box_h / 2
+        await self.show_box(seq, x, y, z_box)
+        self.placed.append((x, y, z_box))
+        return seq

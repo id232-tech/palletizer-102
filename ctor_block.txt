@@ -1,0 +1,7 @@
+        # The pattern now comes from configuration. Counts are
+        # converted with int() because JSON numbers are floats.
+        attrs = struct_to_dict(config.attributes)
+        self.columns = int(attrs["columns"])
+        self.rows = int(attrs["rows"])
+        self.layers = int(attrs["layers"])
+        self.box_h = attrs["box_height_mm"]

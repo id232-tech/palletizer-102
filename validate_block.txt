@@ -1,0 +1,31 @@
+        # Attributes arrive as a dict. JSON numbers arrive as
+        # floats: a 2 typed in the app reaches you as 2.0, so
+        # check wholeness, and avoid isinstance int.
+        attrs = struct_to_dict(config.attributes)
+
+        # columns: is it present, whole, and positive?
+        columns = attrs.get("columns")
+        if (columns is None or columns < 1
+                or columns != int(columns)):
+            raise ValueError(
+                "columns must be a positive whole number")
+
+        # rows: is it present, whole, and positive?
+        rows = attrs.get("rows")
+        if (rows is None or rows < 1
+                or rows != int(rows)):
+            raise ValueError(
+                "rows must be a positive whole number")
+
+        # layers: is it present, whole, and positive?
+        layers = attrs.get("layers")
+        if (layers is None or layers < 1
+                or layers != int(layers)):
+            raise ValueError(
+                "layers must be a positive whole number")
+
+        # box_height_mm: is it present, and positive?
+        box_h = attrs.get("box_height_mm")
+        if box_h is None or box_h <= 0:
+            raise ValueError(
+                "box_height_mm must be greater than zero")
