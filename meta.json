@@ -9,7 +9,7 @@
     }
   ],
   "visibility": "private",
-  "url": "",
+  "url": "https://github.com/id232-tech/palletizer-102",
   "description": "A fully autonomous palletizing service that picks boxes from the pick station and stacks them on the pallet.",
   "markdown_link": "README.md",
   "entrypoint": "dist/main",
